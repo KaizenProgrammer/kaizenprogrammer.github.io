@@ -1,0 +1,32 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@import "https://fonts.googleapis.com/css?family=Kaushan%20Script";
+@import
+  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
+  "minima/initialize";
+
+/* HSL */
+$dark-blue: hsla(240, 100%, 11%, 1);
+$color-dark-text: hsla(180, 100%, 2%, 1);
+$white: hsla(40, 1%, 98%, 1);
+$color-accent-orange: hsla(15, 74%, 81%, 1);
+$color-accent-blue: hsla(179, 53%, 75%, 1);
+$light-blue: #5ADBFF;
+
+.site-header {
+  background-color: $white;
+  border-top:5px solid $light-blue;
+  .site-logo {
+    margin-top:-10px;
+  }
+  .site-nav {
+    .page-link {
+      color:$dark-blue
+    }
+  }
+}
+
+.wrapper {
+  width:1264px;
+}
