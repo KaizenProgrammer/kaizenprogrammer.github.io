@@ -7,38 +7,36 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
-
-
-  {% if site.paginate %}
-    {% assign posts = paginator.posts %}
+   <h3>Page Size: {{site.collections[1].paginate}}</h3>
+ 
+  {% if site.collections.tutorials.paginate %}
+  {% assign tutorials = paginator.tutorials %}
   {% else %}
-    {% assign posts = site.posts %}
+  {% assign tutorials = site.tutorials %}
   {% endif %}
 
-
-  {%- if posts.size > 0 -%}
+  {%- if tutorials.size > 0 -%}
     {%- if page.list_title -%}
-      <h2 class="post-list-heading">{{ page.list_title }}</h2>
+      <h2 class="tutorial-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
-    <ul class="post-list">
+    <ul class="tutorial-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
+      {%- for tutorial in tutorials -%}
       <li>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <span class="tutorial-meta">{{ tutorial.date | date: date_format }}</span>
         <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
+          <a class="tutorial-link" href="{{ tutorial.url | relative_url }}">
+            {{ tutorial.title | escape }}
           </a>
         </h3>
         {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
+          {{ tutorial.excerpt }}
         {%- endif -%}
       </li>
       {%- endfor -%}
     </ul>
 
-    {% if site.paginate %}
+    {% if site.tutorials.paginate %}
       <div class="pager">
         <ul class="pagination">
         {%- if paginator.previous_page %}

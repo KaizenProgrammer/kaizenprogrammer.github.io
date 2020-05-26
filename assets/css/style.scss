@@ -10,13 +10,13 @@
 $dark-blue: hsla(240, 100%, 11%, 1);
 $color-dark-text: hsla(180, 100%, 2%, 1);
 $white: hsla(40, 1%, 98%, 1);
-$color-accent-orange: hsla(15, 74%, 81%, 1);
-$color-accent-blue: hsla(179, 53%, 75%, 1);
-$light-blue: #5ADBFF;
+$accent-orange: #FE9000;
+$accent-blue: #5ADBFF;
+$accent-yellow: #FFDD4A;
 
 .site-header {
   background-color: $white;
-  border-top:5px solid $light-blue;
+  border-top:5px solid $accent-blue;
   .site-logo {
     margin-top:-10px;
   }
@@ -29,4 +29,34 @@ $light-blue: #5ADBFF;
 
 .wrapper {
   width:1264px;
+}
+
+.home {
+  width:800px;
+}
+
+.post-categories {
+  padding-bottom:15px;
+}
+
+.signup-for-updates {
+  margin:0px;
+  padding:24px;
+  background-color: $accent-orange;
+  background-image: -webkit-linear-gradient( -28deg, $accent-orange 0%, $accent-orange 60%, $accent-yellow 60%, $accent-yellow 60%);
+  background-image: linear-gradient( -28deg, $accent-orange 0%, $accent-orange 60%, $accent-yellow 60%, $accent-yellow 60%);
+}
+
+.site-footer {
+   padding: 5px 0;
+}
+
+.page-content-nowrapper {
+  flex: 1 0 auto;
+}
+
+.card {
+  background-color:$white;
+  min-width: 300px;
+  width:auto;
 }

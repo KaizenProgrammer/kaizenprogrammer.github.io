@@ -30,6 +30,14 @@ layout: default
     {{ content }}
   </div>
 
+  {%- if page.categories.size >0 -%}
+  <div class="post-categories">
+      {%- for category in page.categories %}
+      <a class="post-category" href="{{site.baseurl}}/categories/#{{category|slugize}}">#{{category}}</a>
+      {%- endfor -%}
+  </div>
+  {%- endif -%}
+
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}

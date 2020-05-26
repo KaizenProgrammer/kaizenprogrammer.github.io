@@ -7,38 +7,35 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
-
-
-  {% if site.paginate %}
-    {% assign tutorials = paginator.tutorials %}
+ 
+  {% if site.collections.courses.paginate %}
+  {% assign courses = paginator.courses %}
   {% else %}
-    {% assign tutorials = site.tutorials %}
+  {% assign courses = site.courses %}
   {% endif %}
 
-
-  {%- if tutorials.size > 0 -%}
+  {%- if courses.size > 0 -%}
     {%- if page.list_title -%}
-      <h2 class="tutorial-list-heading">{{ page.list_title }}</h2>
+      <h2 class="course-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
-    <ul class="tutorial-list">
+    <ul class="course-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for tutorial in tutorials -%}
+      {%- for course in courses -%}
       <li>
-        <span class="tutorial-meta">{{ tutorial.date | date: date_format }}</span>
+        <span class="course-meta">{{ course.date | date: date_format }}</span>
         <h3>
-          <a class="tutorial-link" href="{{ tutorial.url | relative_url }}">
-            {{ tutorial.title | escape }}
+          <a class="course-link" href="{{ course.url | relative_url }}">
+            {{ course.title | escape }}
           </a>
         </h3>
         {%- if site.show_excerpts -%}
-          {{ tutorial.excerpt }}
+          {{ course.excerpt }}
         {%- endif -%}
       </li>
       {%- endfor -%}
     </ul>
 
-    {% if site.paginate %}
+    {% if site.courses.paginate %}
       <div class="pager">
         <ul class="pagination">
         {%- if paginator.previous_page %}

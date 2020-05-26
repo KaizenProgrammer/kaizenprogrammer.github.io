@@ -248,6 +248,7 @@ DEPENDENCIES
   activesupport (>= 4.1.11)
   github-pages (~> 204)
   jekyll-feed (~> 0.6)
+  jekyll-paginate (~> 1.1.0)
   minima (~> 2.0)
   rouge (~> 3.13)
   tzinfo-data
