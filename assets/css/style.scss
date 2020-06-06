@@ -1,62 +1,316 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
 @import "https://fonts.googleapis.com/css?family=Kaushan%20Script";
-@import
-  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
-  "minima/initialize";
+@import "minima/skins/{{ site.minima.skin | default: 'classic' }}", "minima/initialize";
 
 /* HSL */
 $dark-blue: hsla(240, 100%, 11%, 1);
 $color-dark-text: hsla(180, 100%, 2%, 1);
 $white: hsla(40, 1%, 98%, 1);
-$accent-orange: #FE9000;
-$accent-blue: #5ADBFF;
-$accent-yellow: #FFDD4A;
+$accent-orange: #fe9000;
+$accent-blue: #5adbff;
+$accent-yellow: #ffdd4a;
 
 .site-header {
   background-color: $white;
-  border-top:5px solid $accent-blue;
+  border-top: 5px solid $accent-blue;
   .site-logo {
-    margin-top:-10px;
+    margin-top: -10px;
   }
   .site-nav {
     .page-link {
-      color:$dark-blue
+      color: $dark-blue;
     }
   }
 }
 
 .wrapper {
-  width:1264px;
+  width: 1264px;
 }
 
 .home {
-  width:800px;
+  width: 800px;
+  margin-top: -66px;
+  float:left;
+}
+
+.home-sidebar {
+  width: 390px;
+  margin-left:24px;
+  margin-top: -66px;
+  float:left;
+}
+
+.content-container {
+
+  background: white;
+  padding: 24px;
+  -webkit-box-shadow: 0 14px 26px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 14px 26px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
 }
 
 .post-categories {
-  padding-bottom:15px;
+  padding-bottom: 15px;
 }
 
-.signup-for-updates {
-  margin:0px;
-  padding:24px;
-  background-color: $accent-orange;
-  background-image: -webkit-linear-gradient( -28deg, $accent-orange 0%, $accent-orange 60%, $accent-yellow 60%, $accent-yellow 60%);
-  background-image: linear-gradient( -28deg, $accent-orange 0%, $accent-orange 60%, $accent-yellow 60%, $accent-yellow 60%);
+.split-angle-gradient {
+  margin: 0px;
+  padding: 24px;
+  background: linear-gradient(rgba(60, 105, 151, 0.75), rgba(60, 105, 151, 0.75)),
+    url("/assets/code-scaled.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .site-footer {
-   padding: 5px 0;
+  padding: 5px 0;
 }
 
 .page-content-nowrapper {
   flex: 1 0 auto;
 }
 
-.card {
-  background-color:$white;
-  min-width: 300px;
-  width:auto;
+.quote {
+  position: relative;
+  font-family: "Sanchez", serif;
+  font-size: 2em;
+  line-height: 2em;
+  color: $accent-blue;
+
+  footer {
+    font-family: "Kaushan Script", sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: darken($accent-blue, 15%);
+    float: right;
+
+    &:before {
+      content: "\2015";
+    }
+  }
+  &:after {
+    content: "\201D";
+    position: absolute;
+    top: 0.28em;
+    right: 0;
+    font-size: 6em;
+    font-style: italic;
+    color: darken($accent-blue, 7%);
+    z-index: -1;
+  }
+}
+
+.introduction {
+  width: 800px;
+  float:left;    
+  margin-top: 20px;
+  padding: 60px 0 100px;
+}
+.introduction-sidebar {
+  width: 390px;
+  margin-left:24px;
+  float:left;    
+  margin-top: 20px;
+  padding: 60px 0 100px;
+}
+
+.socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socials__item {
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.socials__item:first-child {
+  margin-left: 0;
+}
+
+.socials__item__link {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #abb7b7;
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .socials__item__link {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+}
+
+.socials__item__link svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -52%);
+  -o-transform: translate(-50%, -52%);
+  -ms-transform: translate(-50%, -52%);
+  -webkit-transform: translate(-50%, -52%);
+  transform: translate(-50%, -52%);
+}
+
+.socials__item__link:hover {
+  background: $accent-blue;
+  color: #fff;
+}
+
+.socials__item__link {
+ background: rgba(255, 255, 255, 0.8);
+ color: $dark-blue;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero h1 {
+  color: #fff;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero h1 {
+    white-space: pre-line;
+  }
+}
+
+.hero p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero p {
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  .hero p {
+    margin-top: 30px;
+  }
+}
+
+.hero .socials {
+  margin-top: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero .socials {
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  .hero .socials {
+    margin-top: 30px;
+  }
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(19, 41, 48, 0.8);
+}
+
+@media only screen and (min-width: 1220px) {
+  .h1,
+  h1 {
+    font-size: 60px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .h1,
+  h1 {
+    font-size: 45px;
+  }
+}
+
+.main-page-content-wrapper {
+  background-color: #f4f5f6;
+}
+
+
+
+.definition {
+  color:#FFF;
+  p {margin:0px;}
+  .syllables {
+    font-size: 60px;
+    margin: 0;
+    line-height: 1;
+  }
+  
+  .pronunciation {
+    color: gray;
+  }
+  
+  .synonym-heading {
+    font-style: italic;
+    
+    &::after {
+      content: ":"
+    }
+  }
+  
+  .synonym {
+    &:not(:last-child)::after {
+      content: ", ";
+    }
+  }
+  
+  .synonym-heading,
+  .synonym {
+    color: gray;
+    margin: 0;
+    display: inline;
+  }
+  
+  .part-of-speech {
+    font-style: italic;
+  }
+  
+  .definition-group {
+    margin-bottom: 1em;
+  }
+  
+  .definition-item {
+    margin: 0;
+  }
+  
+  .example {
+    color: gray;
+  }
 }
